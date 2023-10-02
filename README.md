@@ -19,7 +19,8 @@ Building a simple web application on Maven using a Jenkins agent and pushing the
         ```
     
     - Then, let's add the jenkins user to the sudos file to allow authentication
-        ```visudo``` (CTRL O to save. Then press Enter. Ctrl X to exit out)
+
+      ```visudo``` (CTRL O to save. Then press Enter. Ctrl X to exit out)
       
     ![jk sudos pic](https://github.com/uedwinc/Jenkins-for-MavenBuild-and-NexusPush/blob/main/images/jk%20sudos.png)
    
@@ -43,23 +44,30 @@ Building a simple web application on Maven using a Jenkins agent and pushing the
 3. Next, we need to open up port 8080 on our security group as that's the port jenkins uses.
 
 4. The jenkins installation will be done on docker and not directly on the system.
+    
     - So, we install docker on debian using the installation process here (https://docs.docker.com/engine/install/debian/)
+    
     ```docker --version``` to confirm docker installation
+    
     - Now we go to dockerhub to get jenkins image
+    
     - We'll use the jenkins/jenkins sponsored oss image with tag 'jdk17'
       
 5. Let's download and install directly
-    ```bash
+
+   ```bash
    docker run -p 8080:8080 -p 50000:50000 -d jenkins/jenkins:jdk17
     ```
     - Use ```docker images``` to see all docker images on the system
+    
     - Use ```docker ps``` to see all running containers. ```docker ps -a``` to see all containers, both running and stopped. 
+
     - You can get the Container ID and other info from here.
       
-6. Now, let's access jenkins on the web using the ip address and port
+7. Now, let's access jenkins on the web using the ip address and port
 ![jenk pic](https://github.com/uedwinc/Jenkins-for-MavenBuild-and-NexusPush/blob/main/images/jenk.png)
 
-7. We need to get password from the specified location.
+8. We need to get password from the specified location.
 
     - Since jenkins is running as a docker container, we need to log into the container environment
         ```
@@ -75,7 +83,7 @@ Building a simple web application on Maven using a Jenkins agent and pushing the
     
     ![cat pic](https://github.com/uedwinc/Jenkins-for-MavenBuild-and-NexusPush/blob/main/images/cat.png)
 
-8. We now have access to jenkins console
+9. We now have access to jenkins console
 
 ![1st access pic](https://github.com/uedwinc/Jenkins-for-MavenBuild-and-NexusPush/blob/main/images/1st%20access.png)
 
